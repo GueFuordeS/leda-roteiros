@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename method &apos;sorting.test.StudentSortingTest.printaArray(...)&apos; to &apos;printArray&apos;&#x0A;- Original project: &apos;R01-03&apos;&#x0A;- Original element: &apos;sorting.test.StudentSortingTest.printaArray(...)&apos;&#x0A;- Renamed element: &apos;sorting.test.StudentSortingTest.printArray(...)&apos;&#x0A;- Update references to refactored element" delegate="false" deprecate="false" description="Rename method &apos;printaArray&apos;" flags="589826" id="org.eclipse.jdt.ui.rename.method" input="/src\/test\/java&lt;sorting.test{StudentSortingTest.java[StudentSortingTest~printaArray~\[QInteger;" name="printArray" references="true" stamp="1495654244075" version="1.0"/>
+</session>

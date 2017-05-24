@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="StudentSortingTest (1)" project="R01-03" tests="9" started="9" failures="0" errors="0" ignored="0">
+  <testsuite name="sorting.test.StudentSortingTest" time="0.032">
+    <testcase name="testSort01" classname="sorting.test.StudentSortingTest" time="0.011"/>
+    <testcase name="testSort02" classname="sorting.test.StudentSortingTest" time="0.001"/>
+    <testcase name="testSort03" classname="sorting.test.StudentSortingTest" time="0.008"/>
+    <testcase name="testSort04" classname="sorting.test.StudentSortingTest" time="0.002"/>
+    <testcase name="testSort05" classname="sorting.test.StudentSortingTest" time="0.001"/>
+    <testcase name="testSort06" classname="sorting.test.StudentSortingTest" time="0.001"/>
+    <testcase name="testSort07" classname="sorting.test.StudentSortingTest" time="0.001"/>
+    <testcase name="testSort08" classname="sorting.test.StudentSortingTest" time="0.004"/>
+    <testcase name="testSort09" classname="sorting.test.StudentSortingTest" time="0.003"/>
+  </testsuite>
+</testrun>
