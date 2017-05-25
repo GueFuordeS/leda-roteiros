@@ -430,3 +430,17 @@ org.eclipse.jface.text.BadLocationException: null
 2017-05-24 19:43:19,684 [main] INFO  o.e.m2e.actions.ExecutePomAction - Creating new launch configuration
 2017-05-24 19:43:27,624 [Worker-77] INFO  o.e.m.i.launch.MavenLaunchDelegate - /home/fernandes/leda-roteiros/R01-03
 2017-05-24 19:43:27,625 [Worker-77] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn -B install
+2017-05-24 19:50:37,153 [Worker-87] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2017-05-24 19:50:37,154 [Worker-87] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/fernandes/leda-roteiros/R01-03/src/main/resources
+2017-05-24 19:50:37,161 [Worker-87] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2017-05-24 19:50:37,161 [Worker-87] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/fernandes/leda-roteiros/R01-03/src/test/resources
+2017-05-24 19:51:04,351 [Worker-87] INFO  o.e.m.i.launch.MavenLaunchDelegate - /home/fernandes/leda-roteiros/R01-03
+2017-05-24 19:51:04,351 [Worker-87] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn -B install
+2017-05-24 19:51:04,501 [Worker-80] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2017-05-24 19:51:04,502 [Worker-80] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/fernandes/leda-roteiros/R01-03/src/main/resources
+2017-05-24 19:51:04,510 [Worker-80] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2017-05-24 19:51:04,511 [Worker-80] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/fernandes/leda-roteiros/R01-03/src/test/resources
+2017-05-24 20:01:18,788 [Worker-87] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2017-05-24 20:01:19,069 [Worker-87] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/fernandes/leda-roteiros/R01-03/src/main/resources
+2017-05-24 20:01:19,071 [Worker-87] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2017-05-24 20:01:19,169 [Worker-87] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/fernandes/leda-roteiros/R01-03/src/test/resources
