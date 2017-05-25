@@ -1,7 +1,7 @@
 package sorting.simpleSorting;
 
 import sorting.AbstractSorting;
-import static util.Util.swap;
+import util.Util;
 
 /**
  * The bubble sort algorithm iterates over the array multiple times, pushing big
@@ -39,7 +39,7 @@ public class BubbleSort<T extends Comparable<T>> extends AbstractSorting<T> {
 			swapped = false;
 			for (int j = rightIndex; j > i; j--) {
 				if (array[j-1].compareTo(array[j]) > 0) {
-					swap(array, j-1, j);
+					Util.swap(array, j-1, j);
 					swapped = true;
 				}
 			}

@@ -1,7 +1,7 @@
 package sorting.simpleSorting;
 
 import sorting.AbstractSorting;
-import static util.Util.swap;
+import util.Util;
 
 /**
  * As the insertion sort algorithm iterates over the array, it makes the
@@ -39,7 +39,7 @@ public class InsertionSort<T extends Comparable<T>> extends AbstractSorting<T> {
 		for (int i = leftIndex; i < rightIndex; i++) {
 			int insertionPointer = i;
 			while (insertionPointer >= leftIndex && array[insertionPointer].compareTo(array[insertionPointer+1]) > 0) {
-				swap(array, insertionPointer, insertionPointer+1);
+				Util.swap(array, insertionPointer, insertionPointer+1);
 				insertionPointer--;
 			}
 		}

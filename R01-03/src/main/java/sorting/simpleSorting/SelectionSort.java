@@ -1,7 +1,7 @@
 package sorting.simpleSorting;
 
 import sorting.AbstractSorting;
-import static util.Util.swap;
+import util.Util;
 
 /**
  * The selection sort algorithm chooses the smallest element from the array and
@@ -40,7 +40,7 @@ public class SelectionSort<T extends Comparable<T>> extends AbstractSorting<T> {
 					minElemIndex = j;
 				}
 			}
-			swap(array, i, minElemIndex);
+			Util.swap(array, i, minElemIndex);
 		}
 	}
 }
