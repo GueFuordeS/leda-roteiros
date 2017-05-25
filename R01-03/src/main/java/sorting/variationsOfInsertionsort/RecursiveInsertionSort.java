@@ -36,7 +36,7 @@ public class RecursiveInsertionSort<T extends Comparable<T>> extends
 	 * 
 	 * @param array				array de tipo generico no qual as operacoes de ordenacao serao realizadas
 	 * @param leftIndex			indice na qual delimita o comeco da porcao a ser ordenada
-	 * @param insertionPointer 	indice na qual divide a porcao ordenada da a ser ordenada no insertitionsort
+	 * @param insertionPointer	indice na qual divide a porcao ordenada da a ser ordenada no insertitionsort
 	 * @param rightIndex		indice na qual delimita o final da porcao a ser ordenada
 	 * 
 	 * @author 				Gabriel Fernandes
