@@ -32,7 +32,7 @@ public class StudentSortingTest {
 		populaVetorRepetido(new Integer[] { 4, 9, 3, 4, 0, 5, 1, 4 });
 		populaVetorIgual(new Integer[] { 6, 6, 6, 6, 6, 6 });
 
-		populaVetorSingleElem(new Integer[] {67});
+		populaVetorSingleElem(new Integer[] {1,2,3,0});
 		populaVetorDoubleElem(new Integer[] {-8, -15});
 		populaVetorStrings(new String[] {"Chorong", "Bomi", "Naeun", "Hayoung", 
 											"Eunji", "Namjoo"});
@@ -46,7 +46,7 @@ public class StudentSortingTest {
 	 * do aluno
 	 */
 	private void getImplementation() {
-		this.implementation = new InsertionSort<>();
+		this.implementation = new BubbleSort<>();
 	}
 
 	public void populaVetorTamanhoPar(Integer[] arrayPadrao) {
@@ -133,7 +133,7 @@ public class StudentSortingTest {
 	@Test
 	public void testSort08() {
 		AbstractSorting<String> implementation2;
-		implementation2 = new InsertionSort<>();
+		implementation2 = new BubbleSort<>();
 		String[] copy1 = Arrays.copyOf(vetorStrings, vetorStrings.length);
 		
 		System.out.println(Arrays.toString(vetorStrings));
@@ -147,7 +147,7 @@ public class StudentSortingTest {
 	@Test
 	public void testSort09() {
 		AbstractSorting<String> implementation2;
-		implementation2 = new InsertionSort<>();
+		implementation2 = new BubbleSort<>();
 		String[] copy1 = {"Chorong", "Bomi", "Eunji", "Hayoung", "Naeun", "Namjoo"};
 
 		System.out.println(Arrays.toString(vetorStrings));

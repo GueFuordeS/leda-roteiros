@@ -17,7 +17,8 @@ public class BubbleSort<T extends Comparable<T>> extends AbstractSorting<T> {
 	 * da porcao a ser ordenada ate o penultimo elemento dela, a cada iteracao do for interior
 	 * parte do final a ser ordenado do array ate o indice atual do for exterior, com o decorrer
 	 * da execucao do algoritimo fazendo "flutuar" do menor para o maior os numeros para o comeco
-	 * do array.
+	 * do array. Uso de uma flag para se ao final de toda uma iteracao de trocas nenhuma haver,
+	 * quer dizer que o array ja esta ordenado, melhorando o tempo de execucao do bubble no melhor caso.
 	 */
 	/**
 	 * Ordena uma porcao definida de um array, podendo compreender todo o array
@@ -32,12 +33,17 @@ public class BubbleSort<T extends Comparable<T>> extends AbstractSorting<T> {
 	 */
 	@Override
 	public void sort(T[] array, int leftIndex, int rightIndex) {
-		for (int i = leftIndex; i < rightIndex; i++) {
+		boolean swapped = true;
+		int i = leftIndex;
+		while (swapped && i < rightIndex) {
+			swapped = false;
 			for (int j = rightIndex; j > i; j--) {
 				if (array[j-1].compareTo(array[j]) > 0) {
 					swap(array, j-1, j);
+					swapped = true;
 				}
 			}
+			i++;
 		}
 	}
 }
