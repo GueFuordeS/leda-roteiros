@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2017-05-26T16:16:54.642-0300</date>
+  <logger>GABRIEL FERNANDES DA SILVA</logger>
+  <level>FINE</level>
+  <message>File 116110409-GABRIEL FERNANDES DA SILVA.zip was received. It was sent by GABRIEL FERNANDES DA SILVA from IP 127.0.1.1</message>
+</record>
