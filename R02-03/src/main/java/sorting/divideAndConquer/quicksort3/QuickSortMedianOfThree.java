@@ -45,23 +45,22 @@ public class QuickSortMedianOfThree<T extends Comparable<T>> extends
 	    }
 	}
 	
-	private int partition(T[] array, int lhand, int rhand, int rbound) {
+	private int partition(T[] array, int lhand, int rhand, int rightIndex) {
 	    if(lhand < rhand) {
-	        if (array[lhand].compareTo(array[rbound]) <= 0) {
-	            return partition(array, lhand+1, rhand, rbound);
+	        if (array[lhand].compareTo(array[rightIndex]) <= 0) {
+	            return partition(array, lhand+1, rhand, rightIndex);
 	        }
-	        if (array[rhand].compareTo(array[rbound]) >= 0) {
-	            return partition(array, lhand, rhand-1, rbound);
+	        if (array[rhand].compareTo(array[rightIndex]) >= 0) {
+	            return partition(array, lhand, rhand-1, rightIndex);
 	        }
-
 	        Util.swap(array, lhand, rhand);
-	        return partition(array, lhand+1, rhand-1, rbound);
+	        return partition(array, lhand+1, rhand-1, rightIndex);
 	    }
-	    if (array[rhand].compareTo(array[rbound]) >= 0) {
-	        Util.swap(array, rhand, rbound);
+	    if (array[rhand].compareTo(array[rightIndex]) >= 0) {
+	        Util.swap(array, rhand, rightIndex);
 	        return rhand;
 	    }
-	    Util.swap(array, rhand+1, rbound);
+	    Util.swap(array, rhand+1, rightIndex);
 	    return rhand+1;
 	}
 }
