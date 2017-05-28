@@ -15,15 +15,30 @@ public class QuickSort<T extends Comparable<T>> extends AbstractSorting<T> {
 
 	@Override
 	public void sort(T[] array, int leftIndex, int rightIndex) {
-		
+	    if (leftIndex < rightIndex) {
+	        int pivot = partition(array, leftIndex, rightIndex-1, rightIndex);
+	        sort(array, leftIndex, pivot-1);
+	        sort(array, pivot+1, rightIndex);
+	    }
 	}
 	
-	private void reOrdArray(T[] array, int leftIndex, int pivot, int pointer, int rightIndex) {
-		if (pointer < rightIndex) {
-			if (array[pivot].compareTo(array[pointer]) > 0) {
-				Util.swap(array, pivot, pivot+1);
-				reOrdArray(array, leftIndex, pivot, pointer+1, rightIndex);
-			}
-		}
+	private int partition(T[] array, int lhand, int rhand, int rbound) {
+	    if(lhand < rhand) {
+	        if (array[lhand].compareTo(array[rbound]) <= 0) {
+	            return partition(array, lhand+1, rhand, rbound);
+	        }
+	        if (array[rhand].compareTo(array[rbound]) >= 0) {
+	            return partition(array, lhand, rhand-1, rbound);
+	        }
+
+	        Util.swap(array, lhand, rhand);
+	        return partition(array, lhand+1, rhand-1, rbound);
+	    }
+	    if (array[rhand].compareTo(array[rbound]) >= 0) {
+	        Util.swap(array, rhand, rbound);
+	        return rhand;
+	    }
+	    Util.swap(array, rhand+1, rbound);
+	    return rhand+1;
 	}
 }

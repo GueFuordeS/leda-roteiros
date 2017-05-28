@@ -118,6 +118,7 @@
 								<name>sorting.simpleSorting.BubbleSort</name>
 								<name>sorting.simpleSorting.SelectionSort</name>
 								<name>sorting.simpleSorting.InsertionSort</name>
+								<name>sorting.variationsOfInsertionsort.RecursiveInsertionSort</name>
 							</qualifiedNames>
 						</configuration>
 					</execution>
