@@ -1,3 +1,6 @@
 .metadata
 .recommenders
 .directory
+target/
+*log
+.settings
