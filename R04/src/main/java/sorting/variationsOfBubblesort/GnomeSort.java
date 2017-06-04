@@ -1,7 +1,5 @@
 package sorting.variationsOfBubblesort;
 
-import java.util.Arrays;
-
 import sorting.AbstractSorting;
 import util.Util;
 
@@ -20,13 +18,5 @@ public class GnomeSort<T extends Comparable<T>> extends AbstractSorting<T> {
 				i--;
 			}
 		}
-	}
-	
-	public static void main(String[] args) {
-		GnomeSort<Integer> comb = new GnomeSort<>();
-		Integer[] arr = {1, -1, 4, -5,-7, 0, -7};
-		System.out.println(Arrays.toString(arr));
-		comb.sort(arr, 1, 3);
-		System.out.println(Arrays.toString(arr));
 	}
 }

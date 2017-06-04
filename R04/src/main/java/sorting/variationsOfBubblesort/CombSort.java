@@ -1,7 +1,5 @@
 package sorting.variationsOfBubblesort;
 
-import java.util.Arrays;
-
 import sorting.AbstractSorting;
 import util.Util;
 
@@ -16,7 +14,7 @@ public class CombSort<T extends Comparable<T>> extends AbstractSorting<T> {
 	            && rightIndex < array.length) {
 
 			int gap =  rightIndex - leftIndex;
-			double fator = 1.25;
+			final double fator = 1.25;
 			boolean sorted = false;
 
 			while (sorted == false) {
@@ -31,7 +29,7 @@ public class CombSort<T extends Comparable<T>> extends AbstractSorting<T> {
 				}
 				
 				int i = leftIndex;
-				while (i + gap <= rightIndex - leftIndex) {
+				while (i + gap <= rightIndex) {
 					if (array[i].compareTo(array[i+gap]) > 0) {
 						Util.swap(array, i, i+gap);
 						sorted = false;
@@ -40,13 +38,5 @@ public class CombSort<T extends Comparable<T>> extends AbstractSorting<T> {
 				}
 			}
 		}
-	}
-
-	public static void main(String[] args) {
-		CombSort<Integer> comb = new CombSort<>();
-		Integer[] arr = {1, -1, 4, -5,-7, 0, -7};
-		System.out.println(Arrays.toString(arr));
-		comb.sort(arr, 1, 3);
-		System.out.println(Arrays.toString(arr));
 	}
 }
