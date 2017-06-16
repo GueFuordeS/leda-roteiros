@@ -11,8 +11,10 @@ public class QueueUsingStack<T> implements Queue<T> {
 	private Stack<T> stack2;
 
 	public QueueUsingStack(int size) {
-		stack1 = new StackImpl<T>(size);
-		stack2 = new StackImpl<T>(size);
+		if (size >= 0) {
+			stack1 = new StackImpl<T>(size);
+			stack2 = new StackImpl<T>(size);
+		}
 	}
 
 	@Override
