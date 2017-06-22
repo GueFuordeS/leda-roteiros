@@ -4,7 +4,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-public class StudentDoubleLinkedListTest extends StudentLinkedListTest {
+public class StudentDoubleLinkedListTest {
 
 	private DoubleLinkedList<Integer> lista1;
 	//private DoubleLinkedList<Integer> lista2;
@@ -12,7 +12,6 @@ public class StudentDoubleLinkedListTest extends StudentLinkedListTest {
 
 	@Before
 	public void setUp() throws Exception {
-
 		getImplementations();
 
 		// Lista com 3 elementos.
@@ -26,9 +25,9 @@ public class StudentDoubleLinkedListTest extends StudentLinkedListTest {
 
 	private void getImplementations() {
 		// TODO O aluno deve ajustar aqui para instanciar sua implementação
-		lista1 = null;
+		lista1 = new RecursiveDoubleLinkedListImpl<>();
 		//lista2 = null;
-		lista3 = null;
+		lista3 = new RecursiveDoubleLinkedListImpl<>();
 	}
 
 	// Métodos de DoubleLinkedList
