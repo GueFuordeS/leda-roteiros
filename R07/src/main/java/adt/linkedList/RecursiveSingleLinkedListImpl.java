@@ -1,10 +1,12 @@
 package adt.linkedList;
 
+import java.util.Arrays;
+
 public class RecursiveSingleLinkedListImpl<T> implements LinkedList<T> {
 
 	protected T data;
 	protected RecursiveSingleLinkedListImpl<T> next;
-
+	
 	public RecursiveSingleLinkedListImpl() {
 
 	}
@@ -27,10 +29,7 @@ public class RecursiveSingleLinkedListImpl<T> implements LinkedList<T> {
 	@Override
 	public int size() {
 		int result = 0;
-		if (this.isEmpty()) {
-			result = 1;
-		}
-		else {
+		if (!this.isEmpty()) {
 			result = 1 + this.next.size();
 		}
 		return result;
@@ -65,29 +64,42 @@ public class RecursiveSingleLinkedListImpl<T> implements LinkedList<T> {
 		}
 	}
 
-	//TODO
 	@Override
 	public void remove(T element) {
 		if (element != null) {
-			if (!this.isEmpty()) {
-				if (this.data.equals(element)) {
-					
+			if(!isEmpty()) {
+				if(this.getData().equals(element)) {
+					this.setData(this.getNext().getData());
+					if(!this.getNext().isEmpty()) {
+						this.setNext(this.getNext().getNext());
+					}
+				} 
+				else {
+					this.getNext().remove(element);
 				}
 			}
 		}
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public T[] toArray() {
-		T[] result = (T[]) new Object[1];
+		T[] result = null;
 		if (!this.isEmpty()) {
-			result[0]  = this.data;
-			result = this.next.toArray();
+			result = (T[]) new Object[1];
+			result[0] = this.data;
+			result = this.juntaArrays(result, this.next.toArray());
 		}
-		else {
-			result[this.size()] = this.data;
+		if (result == null) {
+			result = (T[]) new Object[0];
 		}
 		return result;
+	}
+
+	public T[] juntaArrays(T[] first, T[] second) {
+		  T[] result = Arrays.copyOf(first, first.length + second.length);
+		  System.arraycopy(second, 0, result, first.length, second.length);
+		  return result;
 	}
 
 	public T getData() {

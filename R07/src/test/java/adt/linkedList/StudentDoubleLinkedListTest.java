@@ -7,7 +7,7 @@ import org.junit.Test;
 public class StudentDoubleLinkedListTest extends StudentLinkedListTest {
 
 	private DoubleLinkedList<Integer> lista1;
-	private DoubleLinkedList<Integer> lista2;
+	//private DoubleLinkedList<Integer> lista2;
 	private DoubleLinkedList<Integer> lista3;
 
 	@Before
@@ -27,7 +27,7 @@ public class StudentDoubleLinkedListTest extends StudentLinkedListTest {
 	private void getImplementations() {
 		// TODO O aluno deve ajustar aqui para instanciar sua implementação
 		lista1 = null;
-		lista2 = null;
+		//lista2 = null;
 		lista3 = null;
 	}
 

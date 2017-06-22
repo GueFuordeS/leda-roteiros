@@ -42,5 +42,4 @@ public class StackRecursiveDoubleLinkedListImpl<T> implements Stack<T> {
 		// TODO Implement the method
 		throw new UnsupportedOperationException("Method not implemented");
 	}
-
 }
