@@ -4,6 +4,4 @@
 target
 *log
 .settings
-.classpath
-.project
 RemoteSystemsTempFiles
