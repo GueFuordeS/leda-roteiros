@@ -75,7 +75,7 @@ public class HashtableOpenAddressLinearProbingImpl<T extends Storable> extends
 		if (this.search(element) != null) {
 			int probe = 0;
 			int hashIndex = ((HashFunctionLinearProbing<T>) hashFunction).hash(element, probe);
-
+			
 			while (probe < table.length) {
 				if (table[hashIndex].equals(element)) {
 					return hashIndex;
