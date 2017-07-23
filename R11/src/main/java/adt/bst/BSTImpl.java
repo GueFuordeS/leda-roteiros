@@ -3,7 +3,7 @@ package adt.bst;
 public class BSTImpl<T extends Comparable<T>> implements BST<T> {
 
 	protected BSTNode<T> root;
-
+	
 	public BSTImpl() {
 		root = new BSTNode<T>();
 	}
@@ -59,6 +59,11 @@ public class BSTImpl<T extends Comparable<T>> implements BST<T> {
 				node.setData(element);
 				node.setLeft(new BSTNode<T>());
 				node.setRight(new BSTNode<T>());
+
+				if (node.getParent() == null) {
+					node.setParent(new BSTNode<T>());
+				}
+
 				node.getLeft().setParent(node);
 				node.getRight().setParent(node);
 			}
@@ -112,9 +117,12 @@ public class BSTImpl<T extends Comparable<T>> implements BST<T> {
 		} 
 		else {
 			BSTNode<T> parent = (BSTNode<T>) node.getParent();
-			while (parent != null && node.equals(parent.getRight())) {
+			while (!parent.isEmpty() && node.equals(parent.getRight())) {
 				node = parent;
 				parent = (BSTNode<T>) parent.getParent();
+			}
+			if (parent.isEmpty()) {
+				return null;
 			}
 			return parent;
 		}
@@ -123,7 +131,7 @@ public class BSTImpl<T extends Comparable<T>> implements BST<T> {
 	@Override
 	public BSTNode<T> predecessor(T element) {
 		BSTNode<T> node = this.search(element);
-		
+
 		if (node.isEmpty())
 			return null;
 
@@ -132,9 +140,12 @@ public class BSTImpl<T extends Comparable<T>> implements BST<T> {
 		}
 		else {
 			BSTNode<T> parent = (BSTNode<T>) node.getParent();
-			while (parent != null && node.equals(parent.getLeft())) {
+			while (!parent.isEmpty() && node.equals(parent.getLeft())) {
 				node = parent;
 				parent = (BSTNode<T>) parent.getParent();
+			}
+			if (parent.isEmpty()) {
+				return null;
 			}
 			return parent;
 		}

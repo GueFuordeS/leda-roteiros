@@ -96,6 +96,11 @@ public class SortComparatorBSTImpl<T extends Comparable<T>> extends BSTImpl<T> i
 				node.setData(element);
 				node.setLeft(new BSTNode<T>());
 				node.setRight(new BSTNode<T>());
+				
+				if (node.getParent() == null) {
+					node.setParent(new BSTNode<T>());
+				}
+				
 				node.getLeft().setParent(node);
 				node.getRight().setParent(node);
 			} else {

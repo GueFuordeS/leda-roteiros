@@ -1,22 +1,8 @@
 package adt.bst;
 
-import java.util.Arrays;
-
 public class BSTImpl<T extends Comparable<T>> implements BST<T> {
 
 	protected BSTNode<T> root;
-
-	
-	public static void main(String[] args) {
-		BSTImpl<Integer> bst = new BSTImpl<>();
-		
-		System.out.println(Arrays.toString(bst.order()));
-		bst.insert(4);
-		System.out.println(bst.getRoot().getData());
-		bst.insert(5);
-		System.out.println(Arrays.toString(bst.order()));
-		System.out.println(bst.sucessor(5));
-	}
 	
 	public BSTImpl() {
 		root = new BSTNode<T>();
