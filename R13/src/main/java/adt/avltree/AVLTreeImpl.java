@@ -36,7 +36,7 @@ public class AVLTreeImpl<T extends Comparable<T>> extends BSTImpl<T> implements
 				isRoot = true;
 			}
 			int balance = this.calculateBalance(node);
-	
+
 			if (balance > 1) {
 				if (super.height((BSTNode<T>)node.getLeft().getLeft()) > -1
 						|| super.height((BSTNode<T>)node.getLeft().getRight()) > 0) {
@@ -100,5 +100,58 @@ public class AVLTreeImpl<T extends Comparable<T>> extends BSTImpl<T> implements
 		super.insert(element);
 		BSTNode<T> node = this.search(element);
 		this.rebalanceUp(node);
+	}
+
+	@Override
+	public void remove(T element) {
+		BSTNode<T> node = this.search(element);
+		this.remove(node);
+	}
+	
+	private void remove(BSTNode<T> node) {
+		if (!node.isEmpty()) {
+			if (node.isLeaf()) {
+				node.setData(null);
+				node.setLeft(null);
+				node.setRight(null);
+				this.rebalanceUp(node);
+			}
+			else if (!node.getLeft().isEmpty() && node.getRight().isEmpty()
+					||
+					node.getLeft().isEmpty() && !node.getRight().isEmpty()) {
+				if (!this.root.equals(node)) {
+					if (this.isChildPerLeft(node)) {
+						if (!node.getLeft().isEmpty()) {
+							node.getParent().setLeft(node.getLeft());
+						}
+						else {
+							node.getParent().setLeft(node.getRight());
+						}
+					}
+					else {
+						if (!node.getLeft().isEmpty()) {
+							node.getParent().setRight(node.getLeft());
+						}
+						else {
+							node.getParent().setRight(node.getRight());
+						}
+					}
+				}
+				else {
+					if (!node.getLeft().isEmpty()) {
+						this.root = (BSTNode<T>) node.getLeft();
+					}
+					else {
+						this.root = (BSTNode<T>) node.getRight();
+					}
+				}
+				this.rebalanceUp(node);
+			}
+			else {
+				BSTNode<T> sucessor = super.sucessor(node.getData());
+				node.setData((T) sucessor.getData());
+				this.remove(sucessor);
+			}
+		}
 	}
 }
