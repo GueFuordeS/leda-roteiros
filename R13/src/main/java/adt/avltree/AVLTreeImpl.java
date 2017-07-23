@@ -40,8 +40,7 @@ public class AVLTreeImpl<T extends Comparable<T>> extends BSTImpl<T> implements
 			if (balance > 1) {
 				if (super.height((BSTNode<T>)node.getLeft().getLeft()) > -1
 						|| super.height((BSTNode<T>)node.getLeft().getRight()) > 0) {
-					if (this.calculateBalance((BSTNode<T>) node.getLeft()) < -1)
-						Util.leftRotation((BSTNode<T>) node.getLeft());
+
 					if (isRoot) {
 						this.root = Util.rightRotation(node);
 					}
@@ -53,12 +52,13 @@ public class AVLTreeImpl<T extends Comparable<T>> extends BSTImpl<T> implements
 							node.getParent().setRight(Util.rightRotation(node));
 						}
 					}
+
 				}
+
 			} else if (balance < -1) {
 				if (super.height((BSTNode<T>)node.getRight().getRight()) > -1
 						|| super.height((BSTNode<T>)node.getRight().getLeft()) > 0) {
-					if (this.calculateBalance((BSTNode<T>) node.getRight()) > 1)
-						Util.rightRotation((BSTNode<T>) node.getRight());
+
 					if (isRoot) {
 						this.root = Util.leftRotation(node);
 					}
@@ -70,6 +70,7 @@ public class AVLTreeImpl<T extends Comparable<T>> extends BSTImpl<T> implements
 							node.getParent().setRight(Util.leftRotation(node));
 						}
 					}
+
 				}
 			}
 		}
@@ -94,14 +95,6 @@ public class AVLTreeImpl<T extends Comparable<T>> extends BSTImpl<T> implements
 		return retorno;
 	}
 
-	public static void main(String[] args) {
-		AVLTreeImpl<Integer> avl = new AVLTreeImpl<>();
-		avl.insert(5);
-		avl.insert(1);
-		avl.insert(2);
-		avl.insert(3);
-	}
-	
 	@Override
 	public void insert(T element) {
 		super.insert(element);
