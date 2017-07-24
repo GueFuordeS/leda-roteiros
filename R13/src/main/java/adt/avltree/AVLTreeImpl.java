@@ -12,19 +12,18 @@ import adt.bt.Util;
  *
  * @param <T>
  */
-public class AVLTreeImpl<T extends Comparable<T>> extends BSTImpl<T> implements
-		AVLTree<T> {
+public class AVLTreeImpl<T extends Comparable<T>> extends BSTImpl<T> implements AVLTree<T> {
 
 	// AUXILIARY
 	protected int calculateBalance(BSTNode<T> node) {
 		int retorno = 0;
-		
+
 		if (node != null && !node.isEmpty()) {
 			BSTNode<T> nodeLeft = (BSTNode<T>) node.getLeft();
 			BSTNode<T> nodeRight = (BSTNode<T>) node.getRight();
 			retorno = super.height(nodeLeft) - super.height(nodeRight);
 		}
-		
+
 		return retorno;
 	}
 
@@ -38,40 +37,33 @@ public class AVLTreeImpl<T extends Comparable<T>> extends BSTImpl<T> implements
 			int balance = this.calculateBalance(node);
 
 			if (balance > 1) {
-				if (super.height((BSTNode<T>)node.getLeft().getLeft()) > -1
-						|| super.height((BSTNode<T>)node.getLeft().getRight()) > 0) {
-
-					if (isRoot) {
-						this.root = Util.rightRotation(node);
+				if (!node.getLeft().getRight().isEmpty()) {
+					node.setLeft(Util.leftRotation((BSTNode<T>) node.getLeft()));
+				}
+				if (isRoot) {
+					this.root = Util.rightRotation(node);
+				} else {
+					if (this.isChildPerLeft(node)) {
+						node.getParent().setLeft(Util.rightRotation(node));
+					} else {
+						node.getParent().setRight(Util.rightRotation(node));
 					}
-					else {
-						if (this.isChildPerLeft(node)) {
-							node.getParent().setLeft(Util.rightRotation(node));
-						}
-						else {
-							node.getParent().setRight(Util.rightRotation(node));
-						}
-					}
-
 				}
 
 			} else if (balance < -1) {
-				if (super.height((BSTNode<T>)node.getRight().getRight()) > -1
-						|| super.height((BSTNode<T>)node.getRight().getLeft()) > 0) {
-
-					if (isRoot) {
-						this.root = Util.leftRotation(node);
-					}
-					else {
-						if (this.isChildPerLeft(node)) {
-							node.getParent().setLeft(Util.leftRotation(node));
-						}
-						else {
-							node.getParent().setRight(Util.leftRotation(node));
-						}
-					}
-
+				if (!node.getRight().getLeft().isEmpty()) {
+					node.setRight(Util.rightRotation((BSTNode<T>) node.getRight()));
 				}
+				if (isRoot) {
+					this.root = Util.leftRotation(node);
+				} else {
+					if (this.isChildPerLeft(node)) {
+						node.getParent().setLeft(Util.leftRotation(node));
+					} else {
+						node.getParent().setRight(Util.leftRotation(node));
+					}
+				}
+
 			}
 		}
 	}
@@ -83,7 +75,7 @@ public class AVLTreeImpl<T extends Comparable<T>> extends BSTImpl<T> implements
 			this.rebalanceUp((BSTNode<T>) node.getParent());
 		}
 	}
-	
+
 	private boolean isChildPerLeft(BSTNode<T> node) {
 		boolean retorno = false;
 		if (node != null && !node.isEmpty()) {
@@ -107,47 +99,39 @@ public class AVLTreeImpl<T extends Comparable<T>> extends BSTImpl<T> implements
 		BSTNode<T> node = this.search(element);
 		this.remove(node);
 	}
-	
+
 	private void remove(BSTNode<T> node) {
 		if (!node.isEmpty()) {
 			if (node.isLeaf()) {
 				node.setData(null);
 				node.setLeft(null);
 				node.setRight(null);
-				this.rebalanceUp(node);
-			}
-			else if (!node.getLeft().isEmpty() && node.getRight().isEmpty()
-					||
-					node.getLeft().isEmpty() && !node.getRight().isEmpty()) {
+				this.rebalanceUp((BSTNode<T>) node.getParent());
+			} else if (!node.getLeft().isEmpty() && node.getRight().isEmpty()
+					|| node.getLeft().isEmpty() && !node.getRight().isEmpty()) {
 				if (!this.root.equals(node)) {
 					if (this.isChildPerLeft(node)) {
 						if (!node.getLeft().isEmpty()) {
 							node.getParent().setLeft(node.getLeft());
-						}
-						else {
+						} else {
 							node.getParent().setLeft(node.getRight());
 						}
-					}
-					else {
+					} else {
 						if (!node.getLeft().isEmpty()) {
 							node.getParent().setRight(node.getLeft());
-						}
-						else {
+						} else {
 							node.getParent().setRight(node.getRight());
 						}
 					}
-				}
-				else {
+				} else {
 					if (!node.getLeft().isEmpty()) {
 						this.root = (BSTNode<T>) node.getLeft();
-					}
-					else {
+					} else {
 						this.root = (BSTNode<T>) node.getRight();
 					}
 				}
 				this.rebalanceUp(node);
-			}
-			else {
+			} else {
 				BSTNode<T> sucessor = super.sucessor(node.getData());
 				node.setData((T) sucessor.getData());
 				this.remove(sucessor);
