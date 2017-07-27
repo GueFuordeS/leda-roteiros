@@ -118,7 +118,6 @@ public class AVLCountAndFillImpl<T extends Comparable<T>> extends
 				@Override
 				public void run() {
 					mergeLikeInsertion(array, leftIndex, middle-1);
-					
 				}
 			});
 
@@ -126,7 +125,6 @@ public class AVLCountAndFillImpl<T extends Comparable<T>> extends
 				@Override
 				public void run() {
 					mergeLikeInsertion(array, middle + 1, rightIndex);
-					
 				}
 			});
 
