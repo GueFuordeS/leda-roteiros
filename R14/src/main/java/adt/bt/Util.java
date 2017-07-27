@@ -15,10 +15,11 @@ public class Util {
 
 		if(!node.isEmpty()) {
 			pivot = (BSTNode) node.getRight();
-			pivot.parent = node.parent;
-			node.parent = pivot;
-			node.right = pivot.getLeft();
-			pivot.left = node;
+			pivot.setParent(node.getParent());
+			node.setParent(pivot);
+			node.setRight(pivot.getLeft());
+			node.getRight().setParent(node);
+			pivot.setLeft(node);
 		}
 
 		return pivot;
@@ -35,10 +36,11 @@ public class Util {
 		
 		if(!node.isEmpty()) {
 			pivot = (BSTNode) node.getLeft();
-			pivot.parent = node.parent;
-			node.parent = pivot;
-			node.left = pivot.getRight();
-			pivot.right = node;
+			pivot.setParent(node.getParent());
+			node.setParent(pivot);
+			node.setLeft(pivot.getRight());
+			node.getLeft().setParent(node);
+			pivot.setRight(node);
 		}
 
 		return pivot;
