@@ -101,6 +101,7 @@ public class AVLCountAndFillImpl<T extends Comparable<T>> extends
 	@Override
 	public void fillWithoutRebalance(T[] array) {
 		if (array != null && array.length >= 1) {
+			//ja que eh pra ser paralelo
 			Arrays.parallelSort(array);
 			mergeLikeInsertion(array, 0, array.length - 1);
 		}
@@ -108,10 +109,11 @@ public class AVLCountAndFillImpl<T extends Comparable<T>> extends
 	
 	private void mergeLikeInsertion(T[] array, int leftIndex, int rightIndex) {
 		if (rightIndex - leftIndex >= 1) {
-			
+
 			int middle = (rightIndex + leftIndex) / 2;
 			super.insert(array[middle]);
 
+			//uma tentativa de executar ambos os lados ao mesmo tempo
 			Thread thread = new Thread(new Runnable() {
 				@Override
 				public void run() {
@@ -127,21 +129,9 @@ public class AVLCountAndFillImpl<T extends Comparable<T>> extends
 					
 				}
 			});
-			
+
 			thread.start();
 			thread2.start();
-			
-			try {
-				thread.join();
-			} catch (InterruptedException e) {
-				e.getMessage();
-			}
-			try {
-				thread2.join();
-			} catch (InterruptedException e) {
-				e.getMessage();
-			}
-			
 		}
 		else if (rightIndex - leftIndex == 0) {
 			super.insert(array[leftIndex]);
