@@ -108,7 +108,7 @@ public class AVLCountAndFillImpl<T extends Comparable<T>> extends
 	}
 	
 	private void mergeLikeInsertion(T[] array, int leftIndex, int rightIndex) {
-		if (rightIndex - leftIndex >= 1) {
+		if (leftIndex <= rightIndex) {
 
 			int middle = (rightIndex + leftIndex) / 2;
 			super.insert(array[middle]);
@@ -132,9 +132,6 @@ public class AVLCountAndFillImpl<T extends Comparable<T>> extends
 
 			thread.start();
 			thread2.start();
-		}
-		else if (rightIndex - leftIndex == 0) {
-			super.insert(array[leftIndex]);
 		}
 	}
 }
