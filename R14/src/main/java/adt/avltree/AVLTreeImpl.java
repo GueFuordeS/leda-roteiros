@@ -78,7 +78,7 @@ public class AVLTreeImpl<T extends Comparable<T>> extends BSTImpl<T> implements 
 		}
 	}
 
-	private boolean isChildPerLeft(BSTNode<T> node) {
+	protected boolean isChildPerLeft(BSTNode<T> node) {
 		boolean retorno = false;
 		if (node != null && !node.isEmpty()) {
 			BSTNode<T> parent = (BSTNode<T>) node.getParent();
