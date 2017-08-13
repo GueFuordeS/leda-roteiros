@@ -2,8 +2,6 @@ package adt.rbtree;
 
 import static org.junit.Assert.*;
 
-import java.util.Arrays;
-
 import org.junit.Before;
 import org.junit.Test;
 
@@ -127,7 +125,6 @@ public class TestRB {
 		
 		Colour[] coresPreOrd = {Colour.BLACK, Colour.BLACK, Colour.RED,
 				Colour.BLACK, Colour.RED, Colour.RED, Colour.BLACK};
-		System.out.println(Arrays.toString(myRB.preOrder()));
 		for(int i = 0; i < myPre.length; i ++) {
 			assertTrue(myPre[i].getColour() == coresPreOrd[i]);
 			assertEquals(preOrd[i], myPre[i].getData());

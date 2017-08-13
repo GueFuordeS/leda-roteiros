@@ -17,7 +17,7 @@ public class RBTreeImpl<T extends Comparable<T>> extends BSTImpl<T> implements R
 
 	private int blackHeight(RBNode<T> node) {
 		if (node.isEmpty())
-			return 1;
+			return 0;
 
 		int height;
 
@@ -95,7 +95,7 @@ public class RBTreeImpl<T extends Comparable<T>> extends BSTImpl<T> implements R
 		int rightHeight = verifyBlackHeight((RBNode<T>) this.getRoot().getRight(), 0);
 
 		if (rightHeight == leftHeight) return true;
-		return false;
+			return false;
 	}
 
 	private int verifyBlackHeight(RBNode<T> node, int height) {
