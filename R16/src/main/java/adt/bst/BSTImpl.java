@@ -184,7 +184,7 @@ public class BSTImpl<T extends Comparable<T>> implements BST<T> {
 				node.getLeft().setParent(node);
 		}
 	}
-
+	
 	@SuppressWarnings("unchecked")
 	@Override
 	public T[] preOrder() {

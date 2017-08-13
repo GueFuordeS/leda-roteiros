@@ -26,7 +26,7 @@ public class BTreeImpl<T extends Comparable<T>> implements BTree<T> {
 
 	@Override
 	public int height() {
-		return height(this.root);	
+		return height(this.root);
 	}
 
 	private int height(BNode<T> node) {

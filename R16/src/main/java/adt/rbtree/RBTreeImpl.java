@@ -101,7 +101,7 @@ public class RBTreeImpl<T extends Comparable<T>> extends BSTImpl<T> implements R
 	private int verifyBlackHeight(RBNode<T> node, int height) {
 		if (node == null || node.isEmpty())
 			return height++;
-		
+
 		if(this.isBlack(node))
 			height++;
 		
@@ -222,15 +222,19 @@ public class RBTreeImpl<T extends Comparable<T>> extends BSTImpl<T> implements R
 
 	protected void fixUpCase5(RBNode<T> node) {
 		RBNode<T> parent = (RBNode<T>) node.getParent();
-		RBNode<T> grandParent = (RBNode<T>) parent.getParent();
-		
+		RBNode<T> grandFather = (RBNode<T>) parent.getParent();
+
 		parent.setColour(Colour.BLACK);
-		grandParent.setColour(Colour.RED);
-		
-		if(this.isLeftChild(node))
-			Util.rightRotation(grandParent);
+		grandFather.setColour(Colour.RED);
+
+		RBNode<T> newNode;
+		if (isLeftChild(node))
+			newNode = (RBNode<T>) Util.rightRotation(grandFather);
 		else
-			Util.leftRotation(grandParent);
+			newNode = (RBNode<T>) Util.leftRotation(grandFather);
+
+		if (grandFather.getData().equals(this.getRoot().getData()))
+			this.root = newNode;
 	}
 
 	private boolean isLeftChild(RBNode<T> node) {
